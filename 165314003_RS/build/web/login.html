@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LOGIN</title>
+       <link rel="stylesheet" href="css/css_nanang.css">
+    </head>
+    <body>
+        <header>
+            <table style="width:100%">
+                <tr> 
+                    <td style="width:19.5%;"> <center><img src="hospital_Logo.png" width="150px" height="160px" ></center></td>
+                    <td background="hospital_bg.jpg" ><h2 style="font-family:courier;text-align:center;color:#4CAF50;"> RUMAH SAKIT IDAMAN QITA</h2></td>
+                </tr>
+            </table>
+            
+        </header>
+
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cariPasien.html">Cari Pasien</a></li>
+					<li><a href="dataDokter.html">Data Dokter</a></li>
+					<li><a href="dataKlinik.html">Data Klinik</a></li>
+                    <li><a href="dataAntrianPasien.html">Data Antrian pasien</a></li>
+					<li><a href="pendaftaran.html">Pendafatran Pasien</a></li>
+                    <li><a class="active" href="login.html">Login</a></li>
+					
+                </ul>
+             </nav>
+
+            <article>
+                <center><h3 style="font-family">TAMBAHKAN KLINIK</h3></center>
+
+					<div>
+					  <form method="POST">
+						<label for="name">Email</label>
+						<input type="text" name="email" id="emaill" placeholder="Email">
+
+						<label for="password">Password</label>
+						<input type="password" name="pass" id="pass" placeholder="Password">
+						
+						<input type="button" onclick="loogin()" value="Login" >
+					  </form>
+					</div>
+
+            </article>
+        </section>
+
+        <footer>
+            <p>create by NANANG HIMAWAN @2018</p>
+        </footer>
+		
+		
+		
+        <script>
+            function loogin() {
+                                    var email = emaill.value;
+                                    var pw = pass.value;
+                                    var url = 'http://202.94.83.190:8080/165314003_RS/webresources/User/login1?email=' + email + '&password=' + pw;
+                                    var xhttp = new XMLHttpRequest();
+                                    xhttp.onreadystatechange = function () {
+                                        if (this.readyState == 4 && this.status == 200) {
+                                            var user = JSON.parse(this.responseText);
+                                            if (user !== null) {
+                                                window.open("login/index.html", "_self");
+                                            } else {
+                                                alert("Login Gagal");
+                                            }
+
+                                            document.getElementById("demo").innerHTML =
+                                                    this.responseText;
+                                        }
+                                    };
+                                    xhttp.open("GET", url, true);
+                                    xhttp.send();
+                                }
+
+        </script>
+
+    </body>
+</html>
+
+

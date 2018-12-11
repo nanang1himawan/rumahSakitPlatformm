@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rumah Sakit</title>
+        <link rel="stylesheet" href="css/css_nanang.css">
+    </head>
+    <body>
+        <header>
+            <table style="width:100%">
+                <tr> 
+                <td style="width:19.5%;"> <center><img src="hospital_Logo.png" width="150px" height="160px" ></center></td>
+                <td background="hospital_bg.jpg" ><h2 style="font-family:courier;text-align:center;color:#4CAF50;"> RUMAH SAKIT IDAMAN QITA</h2></td>
+                </tr>
+            </table>
+
+        </header>
+
+        <section>
+            <nav>
+                <ul>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="cariPasien.html">Cari Pasien</a></li>
+					<li><a href="dataDokter.html">Data Dokter</a></li>
+					<li><a href="dataDokter.html">Data Klinik</a></li>
+                    <li><a href="dataAntrianPasien.html">Data Antrian pasien</a></li>
+					<li><a href="pendaftaran.html">Pendafatran Pasien</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+
+          <article>
+                <div style="max-width:1280px">
+                    <img class="mySlides" src="home1.jpg" style="width:100%">
+                    <img class="mySlides" src="home2.jpg" style="width:100%">
+                    <img class="mySlides" src="home3.jpg" style="width:100%">
+                </div>
+          </article>
+			
+        <article>
+            <div>
+                <center><h2 style="font-family">Your decisions impact lives. There's a better way to make them.</h2></center>
+            </div> 
+        </article>
+
+        <article>
+            <div>
+                <center><h3 style="font-family">Sudah waktunya untuk memanfaatkan setiap sen yang telah Anda habiskan dan catatan yang didigitalkan oleh efisiensi keuangan di seluruh rumah sakit dan efisiensi operasional pertumbuhan yang diperlukan untuk memenuhi misi Anda.
+				Datanglah ke Rumah sakit iQ klik button dibawah untuk melihat informasi lokasi..
+                    </h3></center>
+					<center><button type="button" onclick="loadMaps()">Maps</button></center>
+            </div> 
+        </article>
+		<div id="map"/></div>
+			<p id="demo"></p> 
+
+    </section>
+
+    <footer>
+        <p>create by NANANG HIMAWAN @2018</p>
+    </footer>
+
+    <script>
+            var map;
+        function loadMaps() {
+            var url = "http://202.94.83.190:8080/165314003_RS/webresources/Location";
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                   // document.getElementById("demo").innerHTML = this.responseText;
+                    var obj = JSON.parse(this.responseText);
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15, center: {lat: obj[0].lat, lng: obj[0].lng}, });
+                    var marker = [];
+                    for (var i = 0; i < obj.length; i++) {
+                        marker[i] = new google.maps.Marker({position: {lat: obj[i].lat, lng: obj[i].lng}, map: map});
+                    }
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+        async defer></script>
+
+	<script src="js/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
+    async defer></script>
+
+
+</body>
+</html>
+
+

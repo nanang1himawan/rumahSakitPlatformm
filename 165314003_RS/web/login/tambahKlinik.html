@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TAMBAH KLINIK</title>
+       <link rel="stylesheet" href="css/css_nanang.css">
+    </head>
+    <body>
+        <header>
+            <table style="width:100%">
+                <tr> 
+                    <td style="width:19.5%;"> <center><img src="hospital_Logo.png" width="150px" height="160px" ></center></td>
+                    <td background="hospital_bg.jpg" ><h2 style="font-family:courier;text-align:center;color:#4CAF50;"> RUMAH SAKIT IDAMAN QITA</h2></td>
+                </tr>
+            </table>
+            
+        </header>
+
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home Login</a></li>
+					<li><a href="daftarAntri.html">Pendaftaran Antrian</a></li>
+                    <li><a class="active" href="tambahKlinik.html">Tambah Klinik</a></li>
+                    <li><a href="tambahDokter.html">Tambah Dokter</a></li>
+					<li><a href="../index.html">Logout</a></li>
+					
+                </ul>
+             </nav>
+
+            <article>
+                <center><h3 style="font-family">TAMBAHKAN KLINIK</h3></center>
+
+					<div>
+					  <form onsubmit="return make_json(this);" method="POST">
+						<label>Tambah Klinik</label>
+						<input type="text" name="idKlinik" placeholder="ID Klinik">
+
+						<label>Nama Klinik</label>
+						<input type="text" name="nama" placeholder="Nama Klinik">
+							
+						<label>Spesialis</label>
+						<input type="text" name="spesialis" placeholder="Spesialis">
+						
+						<input type="submit" value="Tambah">
+					  </form>
+					  <pre id="output">
+						</pre>
+					</div>
+
+            </article>
+        </section>
+
+        <footer>
+            <p>create by NANANG HIMAWAN @2018</p>
+        </footer>
+		
+		
+		
+        <script>
+            function make_json(form) {
+                var json = {
+                    "idKlinik": form.idKlinik.value,
+                    "nama": form.nama.value,
+					"spesialis": form.spesialis.value
+
+                };
+                var html = JSON.stringify(json, 0, 100);
+                var Url = "http://202.94.83.190:8080/165314003_RS/webresources/Klinik/addKlinik";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, false);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.send(html);             
+                document.getElementById("output").innerHTML = html;
+                return false;
+            }
+
+        </script>
+
+    </body>
+</html>
+
+

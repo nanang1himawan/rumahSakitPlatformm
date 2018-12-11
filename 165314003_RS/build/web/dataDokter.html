@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DATA DOKTER</title>
+       <link rel="stylesheet" href="css/css_nanang.css">
+    </head>
+    <body>
+        <header>
+            <table style="width:100%">
+                <tr> 
+                    <td style="width:19.5%;"> <center><img src="hospital_Logo.png" width="150px" height="160px" ></center></td>
+                    <td background="hospital_bg.jpg" ><h2 style="font-family:courier;text-align:center;color:#4CAF50;"> RUMAH SAKIT IDAMAN QITA</h2></td>
+            </table>
+            
+        </header>
+
+        <section>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cariPasien.html">Cari Pasien</a></li>
+					<li><a class="active" href="dataDokter.html">Data Dokter</a></li>
+					<li><a href="dataKlinik.html">Data Klinik</a></li>
+                    <li><a href="dataAntrianPasien.html">Data Antrian pasien</a></li>
+					<li><a href="pendaftaran.html">Pendafatran Pasien</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+             </nav>
+
+            <article>
+                <center><h3 style="font-family">DOKTER DI Rs. iQ</h3></center>
+
+					<div>
+					  <form>
+							<li><button type="button" onclick="loadDokter()">Dokter</button></li>
+					  </form>
+					  
+					</div>
+					<div id="scrolltable">
+					<div id="tampil2"></div>
+					</div>
+            </article>
+        </section>
+
+        <footer>
+            <p>create by NANANG HIMAWAN @2018</p>
+        </footer>
+		
+        <script>
+            function loadDokter() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://202.94.83.190:8080/165314003_RS/webresources/Dokter";
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myFunction(this.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+            function myFunction(response) {
+                var arr = JSON.parse(response);
+                var i;
+                var out = "<table border='1'><tr><td>Nomor</td><td>Nama Dokter</td><td>Spesialis</td>";
+
+                for (i = 0; i < arr.length; i++) {
+                    out += "<tr><td>" +
+                            arr[i].id + "</td><td>" + arr[i].nama + "</td><td>" +
+                            arr[i].spesialis;
+
+                }
+                out += "</table>";
+                document.getElementById("tampil2").innerHTML = out;
+            }
+        }
+
+        </script>
+
+    </body>
+</html>
+
+

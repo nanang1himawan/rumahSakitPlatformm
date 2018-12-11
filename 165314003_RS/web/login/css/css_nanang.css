@@ -1,0 +1,212 @@
+
+		* {
+			box-sizing: border-box;
+		}
+
+
+		/* Style the header */
+		header {
+			text-align: left;
+			font-size: 30px;
+			padding: 2px;
+		}
+
+		/* Create two columns/boxes that floats next to each other */
+		nav {
+			float: left;
+			width: 20%;
+			height: 1100px;  /*only for demonstration, should be removed */
+			background: #ccc;
+			padding: 20px;
+		}
+
+		/* Style the list inside the menu */
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: auto;
+			background-color: #f1f1f1; 
+		}
+		ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		width: 200px;
+		background-color: #f1f1f1;
+		}
+
+		li a {
+			display: block;
+			color: #000;
+			padding: 8px 16px;
+			text-decoration: none;
+		}
+
+		li a.active {
+			background-color: #4CAF50;
+			color: white;
+		}
+
+		li a:hover:not(.active) {
+			background-color: #555;
+			color: white;
+		}
+		
+
+
+		article {
+			float: left;
+			padding: 20px;
+			width: 80%;
+			background-color: #00000;
+			height: 100%; /* only for demonstration, should be removed */
+		}
+
+		/* Clear floats after the columns */
+		section:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		/* Style the footer */
+		footer {
+			background-color: #ccc;
+			padding: 10px;
+			text-align: center;
+			color: black;
+		}
+
+		/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+		@media (max-width: 600px) {
+			nav, article {
+				width: 80%;
+				height: auto;
+			}
+		}
+		
+		
+		
+		
+		
+		/*table#t1 td{
+			background-color: white ;
+		}*/
+		
+		
+		
+		#scrolltable { margin-top: 20px; height: 300px; overflow: auto; }
+        #scrolltable th div { position: absolute; margin-top: 20px; }
+
+            #outtable{
+                padding: 30px;
+                border:1px solid #e3e3e3;
+                width:300px;	
+                border-radius: 10px;
+
+            }
+
+            .short{
+                width: 50px;
+            }
+
+            .normal{
+                width: 150px;
+
+            }
+            table{
+                border-collapse: collapse;
+                font-family: arial;
+                color:#5E5B5C;
+
+            }
+
+            thead th{
+                text-align: left;
+                padding: 10px;
+            }
+
+            tbody td{
+                border-top: 1px solid #e3e3e3;
+                padding: 10px;
+            }
+
+            tbody tr:nth-child(even){
+                background: #F6F5FA;
+            }
+
+            tbody tr:hover{
+                background: #EAE9F5
+            }
+		
+		
+		
+		
+		
+		
+		input[type=text], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			}
+
+		input[type=submit] {
+			width: 100%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+		input[type=button] {
+			width: 100%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+		button[type=button] {
+			width: 100%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+			
+		input[type=password], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			}
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+			}
+
+		#map {
+			height: 250px;
+			width: 80%;
+		}
+		/* Optional: Makes the sample page fill the window. */
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
